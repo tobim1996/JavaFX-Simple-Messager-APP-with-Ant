@@ -1,0 +1,1 @@
+Im Verzeichnis Dict befindet sich ein Woerterbuch

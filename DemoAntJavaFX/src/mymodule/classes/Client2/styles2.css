@@ -1,0 +1,24 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 20.04.2023, 19:38:12
+    Author     : MADAJ 
+*/
+
+.side-bar{
+
+    -fx-background-color: #85BB65;
+
+}
+
+.childpan {
+    -fx-background-color: #F9F8FD;
+
+}
+.searchicon{
+    -fx-border-color: #D5D6F2;
+    -fx-border-width: 0px 0px 2px 0px;
+
+}

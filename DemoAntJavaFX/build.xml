@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<!-- By default, only the Clean and Build commands use this build script. -->
+<!-- Commands such as Run, Debug, and Test only use this build script if -->
+<!-- the Compile on Save feature is turned off for the project. -->
+<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
+<!-- in the project's Project Properties dialog box.-->
+<project name="DemoAntJavaFX" default="default" basedir="." xmlns:j2semodularproject="http://www.netbeans.org/ns/j2se-modular-project/1">
+    <description>Builds, tests, and runs the project DemoAntJavaFX.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <!--
+
+    There exist several targets which are by default empty and which can be 
+    used for execution of your tasks. These targets are usually executed 
+    before and after some main targets. They are: 
+
+      -pre-init:                 called before initialization of project properties
+      -post-init:                called after initialization of project properties
+      -pre-compile:              called before javac compilation
+      -post-compile:             called after javac compilation
+      -pre-compile-single:       called before javac compilation of single file
+      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-test:         called before javac compilation of JUnit tests
+      -post-compile-test:        called after javac compilation of JUnit tests
+      -pre-compile-test-single:  called before javac compilation of single JUnit test
+      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-jar:                  called before JAR building
+      -post-jar:                 called after JAR building
+      -post-clean:               called after cleaning build products
+
+    (Targets beginning with '-' are not intended to be called on their own.)
+
+    Example of inserting an obfuscator after compilation could look like this:
+
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
+
+    For list of available properties check the imported 
+    nbproject/build-impl.xml file. 
+
+
+    Another way to customize the build is by overriding existing main targets.
+    The targets of interest are: 
+
+      -init-macrodef-javac:     defines macro for javac compilation
+      -init-macrodef-junit:     defines macro for junit execution
+      -init-macrodef-debug:     defines macro for class debugging
+      -init-macrodef-java:      defines macro for class execution
+      -do-jar:                  JAR building
+      run:                      execution of project 
+      -javadoc-build:           Javadoc generation
+      test-report:              JUnit report generation
+
+    Notice that the overridden target depends on the jar target and not only on 
+    the compile target as the regular run target does. Again, for a list of available 
+    properties which you can use, check the target you are overriding in the
+    nbproject/build-impl.xml file. 
+
+    -->
+    <property name="do.image" value="true"/>
+    <property name="do.installer" value="true"/>
+    <property name="extres.dir" location="ExternalResources"/>
+    <property name="icon" location="${extres.dir}${file.separator}BRB_Icon.ico"/>
+    <property name="icon_png" location="${extres.dir}${file.separator}BRB_Icon.png"/>
+    <property name="MainJar" value="mymodule.jar"/>
+    <property name="ImageDest" location="dist${file.separator}Images"/>
+    <property name="TempDist" location="dist${file.separator}jarDir"/>
+    <property name="Name" value="DemoAntJavaFX"/>
+    <property name="MainClass" value="theapp.MainApp"/>
+    
+    <property name="AddModules" value="javafx.base,javafx.controls,javafx.fxml"/>
+    <!-- javafx.graphics,javafx.media,javafx.swing,javafx.web -->
+    
+    <property name="InstDest" location="dist${file.separator}Images${file.separator}Installer"/>
+    <property name="ModPath" value="&quot;C:\Program Files\JavaFX\javafx-jmods-17.0.7&quot;"/>
+    
+     
+    <target name="-post-jar"  description="Create Image" if="${do.image}">
+        <echo level="info" message="----------------"/>
+        <echo level="info" message="Create Image"/>
+        <echo level="info" message="----------------"/>
+        <echo level="info" message="Extres: ${extres.dir}"/>
+        <echo level="info" message="Icon: ${icon}"/>
+        <echo level="info" message="icon_png ${icon_png}"/>
+        <echo level="info" message="MainJar: ${MainJar}"/>
+        <echo level="info" message="ImageDest: ${ImageDest}"/>
+        <echo level="info" message="Name: ${Name}"/>
+        <echo level="info" message="ModPath: ${ModPath}"/>
+        <echo level="info" message="MainClass: ${MainClass}"/>
+        <echo level="info" message="InstDest: ${InstDest}"/>
+        <echo level="info" message="AddModules: ${AddModules}"/>
+        <echo level="info" message=""/>
+        
+        <mkdir dir="${TempDist}"/>
+        <copy todir="${TempDist}">
+            <fileset dir="dist">
+                <include name="**/*.jar"/>
+            </fileset>           
+        </copy>          
+        <exec executable="jpackage" failonerror="true" os="Windows 10">
+            <arg line="--temp dist/tmp"/>
+            <arg line="--dest ${ImageDest}"/>
+            <arg line="--name ${Name}"/>
+            <arg line="--icon ${icon}"/> 
+            <arg line="--input ${TempDist}"/>
+            <arg line="--type app-image"/> 
+            <arg line="--module-path ${ModPath}"/>
+            <arg line="--add-modules javafx.base,javafx.controls,javafx.fxml"/>
+            <arg line="--main-jar ${MainJar}"/> 
+            <arg line="--main-class ${MainClass}"/>
+            <arg line="--verbose"/>
+        </exec>
+        
+        <!-- "Mac???" in os="Mac???" muss  mit der JVM-Ausgabe von 
+                System.out.println(System.getProperty("os.name"));
+             auf dem Mac-Zielrechner ersetzt werden.     
+        -->
+        <exec executable="jpackage" failonerror="true" os="Mac???">
+            <arg line="--temp dist/tmp"/>
+            <arg line="--dest ${ImageDest}"/>
+            <arg line="--name ${Name}"/>
+            <arg line="--icon ${icon_png}"/> 
+            <arg line="--input ${TempDist}"/>
+            <arg line="--type app-image"/> 
+            <arg line="--module-path ${ModPath}"/>
+            <arg line="--add-modules javafx.base,javafx.controls,javafx.fxml"/>
+            <arg line="--main-jar ${MainJar}"/> 
+            <arg line="--main-class ${MainClass}"/>
+            <arg line="--verbose"/>
+        </exec>
+        
+        <!-- "Linux" in os="Linux" muss  mit der JVM-Ausgabe von 
+                System.out.println(System.getProperty("os.name"));
+             auf dem Linux-Zielrechner ersetzt werden.     
+        -->
+        <exec executable="jpackage" failonerror="true" os="Linux">
+            <arg line="--temp dist/tmp"/>
+            <arg line="--dest ${ImageDest}"/>
+            <arg line="--name ${Name}"/>
+            <arg line="--icon ${icon_png}"/> 
+            <arg line="--input ${TempDist}"/>
+            <arg line="--type app-image"/> 
+            <arg line="--module-path ${ModPath}"/>
+            <arg line="--add-modules javafx.base,javafx.controls,javafx.fxml"/>
+            <arg line="--main-jar ${MainJar}"/> 
+            <arg line="--main-class ${MainClass}"/>
+            <arg line="--verbose"/>
+        </exec>   
+        <antcall target="CreateInstaller"></antcall>               
+    </target>
+    <target name="CreateInstaller" description="Create Installer" if="${do.installer}">
+        <echo level="info" message="----------------"/>
+        <echo level="info" message="Create Installer"/>
+        <echo level="info" message="----------------"/>
+        <exec executable="jpackage" failonerror="true" os="Windows 10">
+            <arg line="--temp dist${file.separator}tmp"/>
+            <arg line="--dest ${InstDest}"/>
+            <arg line="--type msi"/> 
+            <arg line="--app-image ${ImageDest}${file.separator}${Name}"/>
+            <arg line="--name ${Name}"/>
+            <arg line="--icon ${icon}"/> 
+            <arg line="--license-file ${extres.dir}${file.separator}Lizenz.txt"/> 
+            <arg line="--win-dir-chooser"/> 
+            <arg line="--verbose"/>
+        </exec>
+        
+        <!-- "Mac???" in os="Mac???" muss  mit der JVM-Ausgabe von 
+                System.out.println(System.getProperty("os.name"));
+             auf dem Mac-Zielrechner ersetzt werden.     
+        -->          
+        <exec executable="jpackage" failonerror="true" os="Mac???">
+            <arg line="--temp dist${file.separator}tmp"/>
+            <arg line="--dest ${InstDest}"/>
+            <arg line="--type dmg"/> 
+            <arg line="--app-image ${ImageDest}${file.separator}${Name}"/>
+            <arg line="--name ${Name}"/>
+            <arg line="--icon ${icon_png}"/> 
+            <arg line="--license-file ${extres.dir}${file.separator}Lizenz.txt"/> 
+            <arg line="--verbose"/>
+        </exec>
+        
+        <!-- "Linux" in os="Linux" muss  mit der JVM-Ausgabe von 
+                System.out.println(System.getProperty("os.name"));
+             auf dem Linux-Zielrechner ersetzt werden.     
+        -->        
+        <exec executable="jpackage" failonerror="true" os="Linux">
+            <arg line="--temp dist${file.separator}tmp"/>
+            <arg line="--dest ${InstDest}"/>
+            <arg line="--type deb"/> 
+            <arg line="--app-image ${ImageDest}${file.separator}${Name}"/>
+            <arg line="--name ${Name}"/>
+            <arg line="--icon ${icon_png}"/> 
+            <arg line="--license-file ${extres.dir}${file.separator}Lizenz.txt"/> 
+            <arg line="--verbose"/>
+        </exec>  
+    </target>  
+
+</project>

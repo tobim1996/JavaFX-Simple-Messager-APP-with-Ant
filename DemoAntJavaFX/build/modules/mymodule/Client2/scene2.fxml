@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client2.SceneController2">
+   <children>
+      <MenuBar fx:id="menubar" layoutX="-4.0" layoutY="2.0" prefHeight="17.0" prefWidth="695.0" styleClass="side-bar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#closeapplicationWhenPressclosed" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#openhelpwindowOnClick" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Pane layoutX="142.0" layoutY="25.0" prefHeight="460.0" prefWidth="223.0" styleClass="childpan" stylesheets="@styles2.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="142.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <Label layoutX="14.0" layoutY="30.0" lineSpacing="2.0" text="Chats">
+               <font>
+                  <Font name="Baskerville Old Face" size="24.0" />
+               </font>
+            </Label>
+            <HBox layoutX="14.0" layoutY="84.0" prefHeight="28.0" prefWidth="194.0" spacing="8.0" styleClass="searchicon">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/search-interface-symbol.png" />
+                     </image>
+                  </ImageView>
+                  <TextField alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="27.0" prefWidth="143.0" promptText="Suche" style="-fx-background-color: transparent;">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="96.0" layoutY="218.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/add.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="11.0" layoutY="137.0" opacity="0.49" prefHeight="66.0" prefWidth="194.0" style="-fx-background-color: grey;">
+               <children>
+                  <Circle fill="WHITE" layoutX="35.0" layoutY="35.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <ImageView fitHeight="34.0" fitWidth="43.0" layoutX="18.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/user.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="65.0" layoutY="17.0" prefHeight="17.0" prefWidth="115.0" text="Accountname 1" />
+                  <Label layoutX="65.0" layoutY="35.0" text="letzer Text" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutY="25.0" prefHeight="460.0" prefWidth="143.0" styleClass="side-bar" stylesheets="@styles2.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <Circle fill="WHITE" layoutX="64.0" layoutY="52.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="39.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/user.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="27.0" layoutY="94.0" text="Accountname 2 " />
+            <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="14.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/home.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="54.0" layoutY="152.0" text="Profile" />
+            <Label layoutX="54.0" layoutY="199.0" text="Settings" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="16.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/settings.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <HBox layoutX="378.0" layoutY="454.0" />
+      <Pane layoutX="365.0" layoutY="25.0" prefHeight="460.0" prefWidth="407.0" styleClass="childpan" stylesheets="@styles2.css">
+         <children>
+            <Label layoutX="22.0" layoutY="20.0" prefHeight="17.0" prefWidth="223.0" text="Messagerbox">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="316.0" layoutY="20.0" text="Status">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="18.0" layoutX="364.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/bell.png" />
+               </image>
+            </ImageView>
+            <Pane cache="true" cacheHint="QUALITY" layoutX="16.0" layoutY="403.0" prefHeight="50.0" prefWidth="381.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="27.0" fitWidth="24.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/plus2.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="tf_message" layoutX="40.0" layoutY="13.0" prefHeight="25.0" prefWidth="264.0" promptText="Type Message" style="-fx-background-color: transparent;" />
+                  <Circle fill="#fcfcfc" layoutX="330.0" layoutY="26.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Button fx:id="button_send" layoutX="324.0" layoutY="14.0" mnemonicParsing="false" text="Send" />
+               </children>
+            </Pane>
+            <ScrollPane fx:id="sp_main" layoutX="21.0" layoutY="75.0" prefHeight="310.0" prefWidth="366.0">
+               <content>
+                  <VBox fx:id="vbox_message" prefHeight="305.0" prefWidth="363.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
