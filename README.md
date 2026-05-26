@@ -1,6 +1,6 @@
 # 📱 JavaFX Messenger App – Projektdokumentation
 
-![Messager App JavaFX Demo.png]
+![Messenger App JavaFX Demo](Messager App JavaFX Demo.png)
 
 ## 1. Einführung in das Projekt
 
