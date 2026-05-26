@@ -1,5 +1,7 @@
 # 📱 JavaFX Messenger App – Projektdokumentation
 
+![[Messager App JavaFX Demo.png]]
+
 ## 1. Einführung in das Projekt
 
 Im Rahmen dieses Projekts wird eine plattforminterne Messenger-Anwendung für die **Online Fitness GmbH** entwickelt. Das Unternehmen ist ein fiktives, aus Vorlesungen bekanntes Unternehmen, das Softwarelösungen für Fitnessstudios sowie IoT-basierte Fitnessgeräte entwickelt.
