@@ -8,7 +8,6 @@ Ziel der Anwendung ist eine moderne Kommunikationslösung für die interne Firme
 
 Die Anwendung wird als Desktop-Software mit **JavaFX** umgesetzt und basiert auf einer **Client-Server-Architektur**.
 
----
 
 ## 2. Anforderungsanalyse
 
@@ -24,7 +23,6 @@ Die Messenger-App erfüllt folgende Anforderungen:
 - Einsatz von **Multithreading**
 - Netzwerkkommunikation über **Sockets (TCP/IP)**
 
----
 
 ## 3. Netzwerkprogrammierung und Java
 
@@ -35,7 +33,6 @@ Die Kommunikation zwischen Server und Clients erfolgt über die Java-Bibliothek 
 
 Durch den Einsatz von Threads kann jede Client-Verbindung parallel verarbeitet werden, wodurch mehrere Nutzer gleichzeitig unterstützt werden.
 
----
 
 ## 4. Erläuterung: Socket
 
@@ -48,7 +45,6 @@ In Java werden Sockets über folgende Klassen realisiert:
 
 Sockets ermöglichen eine zuverlässige, verbindungsorientierte Kommunikation über TCP/IP und sind ideal für Echtzeit-Anwendungen wie Messenger.
 
----
 
 ## 5. Architektur (MVC-Prinzip)
 
@@ -60,7 +56,6 @@ Die Anwendung folgt dem **Model-View-Controller (MVC)**-Prinzip:
 
 Dieses Architekturmodell verbessert Wartbarkeit und Erweiterbarkeit.
 
----
 
 ## 6. Live-Präsentation der Anwendung
 
@@ -72,7 +67,6 @@ Die Anwendung wurde in einer Live-Demonstration in der Vorlesung vorgestellt:
 - Demonstration der JavaFX Oberfläche
 - Erklärung der technischen Umsetzung (Sockets & Threads)
 
----
 
 ## 7. Literaturverzeichnis
 
